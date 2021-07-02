@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block extendCSS %}
+<link rel="stylesheet" href="{% static 'css/base/form.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+  <div class="div_form">
+    <div class="title">
+      Portfolio
+    </div>
+    
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="input_wrap">
+            {{ field.label }}
+            <div class="input_field">
+              {{ field }}
+            </div>
+          </div>
+        {% endfor %}
+
+      <div class="input_wrap">
+        <input type="submit" class="btn enabled" value="{% trans "Continue" %}">
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

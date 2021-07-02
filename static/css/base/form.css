@@ -1,0 +1,84 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .div_form{
+    width: 700px;
+    height: auto;
+    background: #fff;
+    padding: 35px 50px;
+    border-radius: 2px;
+  }
+
+  form {
+    display: inline-block;
+}
+  
+  .div_form .title{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 24px;
+  }
+  
+  .div_form .input_wrap{
+    margin-bottom: 20px;
+    width: 325px;
+    position: relative;
+  }
+  
+  .div_form .input_wrap:last-child{
+    margin-bottom: 0;
+  }
+  
+  .div_form .input_wrap label{
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .div_form .input_wrap input{
+    padding: 15px;
+    width: 100%;
+    border: 1px solid;
+    font-size: 16px;
+    border-radius: 3px;
+  }
+  
+  .div_form .input_wrap .input{
+    background: #f5f4f4;
+    padding-right: 35px;
+  }
+  
+  
+  .div_form .input_wrap .input:focus{
+    border-color: #1dbf73;
+  }
+  
+  .div_form .input_wrap .input_field{
+    position: relative;
+  }
+  
+  .div_form .input_wrap .btn{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+  }
+  
+  .div_form .input_wrap .btn.enabled{
+    background: #1dbf73;
+    cursor: pointer;
+  }
+  
+  .div_form .input_wrap .error_msg{
+    font-size: 15px;
+    margin-bottom: 5px; 
+    color: #f74040;
+    display: none;
+  }
+  
+  .forgot_link {
+      text-decoration: none;
+      color: #7e9289
+  }

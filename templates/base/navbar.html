@@ -1,0 +1,33 @@
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a class="navbar-brand text-white" href="{% url 'home' %}">Portfolio Generator</a>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a></li>
+        {% if user_auth %}
+          {% if have_portfolio %}
+            <li><a href="{% url 'show_portfolio' request.user %}" class="nav-link px-2 text-white">Portfolio</a></li>
+          {% else %}
+            <li><a href="{% url 'create_portfolio' %}" class="nav-link px-2 text-white">Create Portfolio</a></li>
+          {% endif %}
+          <li class="nav-item dropdown">
+            <a class="nav-link px-2 text-white dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown04">
+              <li><a class="dropdown-item" href="{% url 'account_change_password' %}">Edit Password</a></li>
+              <li><a class="dropdown-item" href="{% url 'edit_portfolio' %}">Edit Portfolio</a></li>
+            </ul>
+          </li>
+        {% endif %}
+      </ul>
+
+      <div class="text-end">
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'account_logout' %}" type="button" class="btn btn-danger">Logout</a>
+        {% else %}
+          <a href="{% url 'account_login' %}" type="button" class="btn btn-outline-light me-2">Login</a>
+          <a href="{% url 'account_signup' %}" type="button" class="btn btn-warning">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>

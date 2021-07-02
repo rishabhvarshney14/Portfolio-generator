@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{{ portfolio.first_name }} - Portfolio</title>
+
+   <link rel="stylesheet" href="{% static 'css/portfolio/base.css' %}" />
+   {% block extendCSS %}
+   {% endblock %}
+</head>
+<body>
+   <div class="container">
+      
+      <nav class="navbar">
+         <div class="navbar-logo"><a style="text-decoration: none;" href="{% url 'show_portfolio' username%}">{{ portfolio.first_name }} {{ portfolio.last_name }}</a></div>
+         <div>
+            {% if is_user %}
+               <a class="navbar-link link-a" href="{% url 'edit_portfolio'%}">Edit Portfolio</a>
+            {% endif %}
+            <a class="navbar-link link-a" href="{% url 'show_portfolio' username%}">Home</a>
+            <a class="navbar-link link-a" href="{% url 'show_projects' username%}">Project</a>
+         </div>
+      </nav>
+      <hr>
+
+      {% block content %}
+      {% endblock %}
+      
+      <hr>
+      <div class="footer">
+         <div class="cr-text">This portfolio is generated with <a href="{% url 'home' %}">Portfolio Generator.</a></div>
+      </div>
+   
+   </div>
+</body>
+</html>

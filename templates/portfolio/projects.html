@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block extendCSS %}
+<link rel="stylesheet" href="{% static 'css/portfolio/projects.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="heading">Projects</div>
+    {% if have_projects %}
+      {% for project in projects %}
+        <article class="project">
+          <h3><a href="{{project.github_link}}">{{project.name}}</a></h3>
+          <span>Tech Stack Used: {{ project.tech_stack }}</span>
+          <br>
+          <br>
+          <div class="text">{{ project.description }}</div>
+          <div class="text">Check on: <a href="{{project.github_link}}" target="_blank" rel="noopener noreferrer">Github</a> or <a href="{{project.live_link}}" target="_blank" rel="noopener noreferrer">Live App.</a></div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p>{{ portfolio.first_name }} does not have any projects.</p>
+    {% endif %}  
+{% endblock %}

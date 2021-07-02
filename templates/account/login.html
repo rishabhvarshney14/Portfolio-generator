@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block extendCSS %}
+<link rel="stylesheet" href="{% static 'css/account/base.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="form">
+    <div class="title">
+      Login
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="input_wrap">
+        {{ form.login.label }}
+        <div class="input_field">
+          {{ form.login }}
+        </div>
+      </div>
+
+      <div class="input_wrap">
+        {{ form.password.label }}
+        <div class="input_field">
+          {{ form.password }}
+        </div>
+      </div>
+
+      <div class="input_wrap">
+        <input type="submit" id="login_btn" class="btn enabled" value="Login">
+        <a class="forgot_link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

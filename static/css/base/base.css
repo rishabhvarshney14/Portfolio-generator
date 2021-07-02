@@ -1,0 +1,6 @@
+body{
+    margin:0;
+    color:#282a33;
+    background: linear-gradient(to right, #f4b661, #f16160);
+    font:600 16px/18px 'Open Sans',sans-serif;
+  }

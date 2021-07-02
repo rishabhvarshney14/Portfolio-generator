@@ -1,0 +1,51 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block extendCSS %}
+<link rel="stylesheet" href="{% static 'css/base/form.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+  <div class="div_form">
+    {% if project_len > 0 %}
+    <h2>Current Projects are:</h2>
+    <hr>
+    
+    {% for project in projects %}
+    <ul>
+        <li>{{project.name}}</li>
+    </ul>
+    {% endfor %}
+    
+{% else %}
+    <p>You do not have any projects!</p>
+{% endif %}
+
+<hr>
+    <div class="title">
+      Add Project
+    </div>
+    
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="input_wrap">
+            {{ field.label }}
+            <div class="input_field">
+              {{ field }}
+            </div>
+          </div>
+        {% endfor %}
+
+      <div class="input_wrap">
+        <input type="submit" class="btn enabled" value="{% trans "Add Project" %}">
+      </div>
+      <a class='forgot_link' href="{% url 'add_skill' %}">Continue</a>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

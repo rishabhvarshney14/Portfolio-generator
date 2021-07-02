@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block extendCSS %}
+<link rel="stylesheet" href="{% static 'css/base/form.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+  <div class="div_form">
+    {% if skill_len > 0 %}
+        <p>Current Skills are:</p>
+        <ul>
+            {% for skill in skills %}
+                <li>{{ skill.skill }} with year of experience {{skill.experience}}</l1>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You do not have any Skill!</p>
+    {% endif %}
+
+<hr>
+    <div class="title">
+      Add Skill
+    </div>
+    
+    <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="input_wrap">
+            {{ field.label }}
+            <div class="input_field">
+              {{ field }}
+            </div>
+          </div>
+        {% endfor %}
+
+      <div class="input_wrap">
+        <input type="submit" class="btn enabled" value="{% trans "Add Skill" %}">
+      </div>
+
+      <a class='forgot_link' href="{% url 'home' %}">Continue</a>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

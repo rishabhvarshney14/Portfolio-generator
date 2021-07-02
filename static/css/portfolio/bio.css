@@ -1,0 +1,36 @@
+.container {
+    max-width: 920px;
+    padding: 0 1rem;
+    margin: auto;
+    overflow: hidden; 
+}
+
+.main {
+    padding-left: 2rem;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.name {
+    font-size: 1.5rem;
+    font-family: Montserrat,sans-serif;
+    font-weight: 900;
+}
+
+.info-text {
+    font-size: 1.3rem;
+    margin-bottom: .7rem;
+}
+
+.skill-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+
+.skill-list {
+    list-style-type: none;
+}

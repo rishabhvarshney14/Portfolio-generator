@@ -1,0 +1,30 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block extendCSS %}
+<link rel="stylesheet" href="{% static 'css/portfolio/bio.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="body"><span class="name">Hi <span role="img" aria-label="Victory Hand">✌️</span> I'm {{portfolio.first_name}} {{portfolio.last_name}}</span></div>
+    {% for line in bio %}
+        <div class="info-text">{{ line }}</div>
+    {% endfor %}
+
+    {% if have_skills%}
+        <div class="info-text">Skills:</div>
+        <ul class='skill-list'>
+        {% for skill in skills %}
+            <li style="padding-left: 30px;">
+                <div class="skill-text">{{ skill.skill }} with {{ skill.experience }} year of experience.</div>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <div class="skill-text">{{ portfolio.first_name }} do not have any skills.</div>
+    {% endif %}
+    <br>
+    <div class="info-text">You can contact me through <a href="mailto:{{portfolio.email_address}}">Email</a>, <a href="{{portfolio.linkdin}}" target="_blank" rel="noopener noreferrer">Linkedin</a> or <a href="{{portfolio.github}}" target="_blank" rel="noopener noreferrer">Github</a>.</div>
+ </div>
+ {% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block extendCSS %}
+<link rel="stylesheet" href="{% static 'css/base/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <h1 class="main__header">PORTFOLIO GENERATOR<br>
+    <span class="sub__header">
+        <span> — </span> 
+        Generate Beautiful Portfolio
+        <span> — </span>
+    </span>
+    </h1>
+
+    {% if user_auth %}
+        <h2>Welcome {{ request.user.username }}</h2>
+        {% if have_portfolio %}
+            <h4>You can view Your Portfolio by <a href="{% url 'show_portfolio' request.user %}">clicking here</a>.</h4>
+            <h4>You can edit Your Portfolio by <a href="{% url 'edit_portfolio' %}">clicking here</a>.</h4>
+        {% else %}
+            <h4>Create your own Portfolio by <a href="{% url 'create_portfolio' %}">clicking here</a>!</h4>
+        {% endif %}
+    {% else %}
+        <h4 style="padding-top: 15px; padding-bottom: 15px;">Please <a href="{% url 'account_login' %}">Login</a> / <a href="{% url 'account_signup' %}">Sign Up</a> to create your own Portfolio.</h4>
+    {% endif %}
+
+    <div class="content">
+        <p>Portfolio Generator is created with Django.</p>
+        <p>You provide it your data and it will create a portfolio website for you without worrying much about Setting up your System or anything.</p>
+        <p>Sample portfolio created with this can be <a href="/">seen here</a>.</p>
+        <p>Source code of this project is available on <a href="/">Github</a></p>
+    </div>
+
+</div>
+{% endblock %}
