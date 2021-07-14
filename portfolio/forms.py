@@ -4,9 +4,6 @@ from django import forms
 
 from .models import Portfolio, Skill, Project
 
-class DateInput(forms.DateInput):
-    input_type = 'date'
-
 class PortfolioForm(forms.ModelForm):
     class Meta:
         model = Portfolio

@@ -4,6 +4,8 @@ from django.contrib.auth import get_user_model
 from .forms import PortfolioForm, ProjectForm, SkillForm
 from .models import Portfolio, Project, Skill
 
+# Return the Portfolio object of the given user it it exist else
+# it returns False 
 def get_portfolio(user=None, username=None):
     if user == None:
         try:
@@ -171,5 +173,6 @@ def showProjects(request, username):
     }
     return render(request, 'portfolio/projects.html', context=context)
 
+# Todo
 def showError(request):
     return render(request, 'home/error.html')
